@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app-escolar-frontend": {
+    "sistema-escolar-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -26,19 +26,27 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap-utilities.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/material-symbols/outlined.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            ],
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -68,10 +76,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "app-escolar-frontend:build:production"
+              "buildTarget": "sistema-escolar-frontend:build:production"
             },
             "development": {
-              "buildTarget": "app-escolar-frontend:build:development"
+              "buildTarget": "sistema-escolar-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +104,9 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap-utilities.min.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/material-symbols/outlined.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -108,5 +118,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "c4d3038f-e669-49a8-9984-438588f2160d"
   }
 }
